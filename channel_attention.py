@@ -24,9 +24,9 @@ class SimpleCNNWithChannelAttention(nn.Module):
     def __init__(self, num_classes=10):
         super(SimpleCNNWithChannelAttention, self).__init__()
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1)
-        self.channel_attention = ChannelAttention(64)  # Apply Channel Attention after the first convolutional layer
+        self.channel_attention = ChannelAttention(64) 
         self.conv2 = nn.Conv2d(64, 128, kernel_size=3, stride=1, padding=1)
-        self.fc = nn.Linear(128  *7*  7, num_classes)
+        self.fc = nn.Linear(128 * 8 * 8, num_classes)
 
     def forward(self, x):
         x = self.conv1(x)
